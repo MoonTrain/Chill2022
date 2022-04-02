@@ -1,14 +1,19 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://DropZone.tscn" type="PackedScene" id=1]
 [ext_resource path="res://RedPot.tscn" type="PackedScene" id=2]
+[ext_resource path="res://DropDrink.tscn" type="PackedScene" id=3]
 
 [node name="Node" type="Node"]
 
 [node name="DropZone" parent="." instance=ExtResource( 1 )]
-position = Vector2( 286, 272 )
+position = Vector2( 118, 102 )
 
 [node name="DropZone2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 642, 204 )
+position = Vector2( 358, 97 )
+
+[node name="DropDrink" parent="." instance=ExtResource( 3 )]
+position = Vector2( 264, 214 )
 
 [node name="RedPot" parent="." instance=ExtResource( 2 )]
+position = Vector2( 241, 92 )

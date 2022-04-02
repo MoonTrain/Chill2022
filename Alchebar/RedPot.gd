@@ -6,6 +6,7 @@ var rest_nodes = []
 
 func _ready():
 	rest_nodes = get_tree().get_nodes_in_group("zone")
+	rest_nodes.append_array(get_tree().get_nodes_in_group("DrinkZone"))
 	rest_point = rest_nodes[0].global_position
 	rest_nodes[0].select()
 
@@ -25,7 +26,7 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and not event.pressed:
 			selected = false
-			var shortest_dist = 75
+			var shortest_dist = 25
 			for child in rest_nodes:
 				var distance = global_position.distance_to(child.global_position)
 				if distance < shortest_dist:

@@ -3,7 +3,7 @@ var fullTex = preload("res://art/Full-Orange.png")
 var halfTex = preload("res://art/Half-Orange.png")
 var emptyTex = preload("res://art/Empty.png")
 var curVar = 0
-
+signal serveDrink
 
 onready var bottleSprite = get_node("Bottle")
 
@@ -23,3 +23,8 @@ func switchTexture():
 	elif(curVar==2):
 		bottleSprite.set_texture(fullTex)
 	
+
+
+func _on_Area2D_input_event(viewport, event, shape_idx):
+	if(Input.is_action_just_pressed("click")):
+		emit_signal("serveDrink")

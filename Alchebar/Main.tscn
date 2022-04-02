@@ -34,8 +34,8 @@ position = Vector2( 511, 221 )
 curve = SubResource( 1 )
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
-position = Vector2( 93, -11 )
-rotation = 1.61581
+position = Vector2( 368, 318 )
+rotation = -3.08631
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 
@@ -43,5 +43,5 @@ rotation = 1.61581
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
-[connection signal="start_game" from="HUD" to="." method="_on_HUD_start_game"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]
+[connection signal="start_game" from="HUD" to="." method="_on_HUD_start_game"]

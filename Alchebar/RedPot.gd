@@ -6,9 +6,9 @@ var selected = false
 var rest_point
 var rest_nodes = []
 var glassNode = []
-var fullTex = preload("res://art/Full-Red.png")
-var halfTex = preload("res://art/Half-Red.png")
-var emptyTex = preload("res://art/Empty.png")
+var fullTex
+var halfTex
+var emptyTex
 var curVar = 0
 var curNode
 var properties = []
@@ -26,10 +26,14 @@ func _ready():
 	rest_nodes[i].select()
 	curNode = i
 	glassNode = get_tree().get_nodes_in_group("DrinkZone")
+	
 
-func init(var p, var c):
+func init(var p, var ft, var ht, var et):
 	properties = p
-	color = c
+	fullTex = ft
+	halfTex = ht
+	emptyTex = et
+	switchTexture()
 	
 func loadTextures():
 	pass

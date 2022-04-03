@@ -4,32 +4,57 @@
 [ext_resource path="res://RedPot.tscn" type="PackedScene" id=2]
 [ext_resource path="res://DropDrink.tscn" type="PackedScene" id=3]
 [ext_resource path="res://BarScene.gd" type="Script" id=4]
-[ext_resource path="res://art/Alchemy_Bar1.png" type="Texture" id=5]
+[ext_resource path="res://art/Alchemy_Bar_v2.png" type="Texture" id=5]
 [ext_resource path="res://audio/jazz.mp3" type="AudioStream" id=6]
 
 [node name="BarScene" type="Node"]
 script = ExtResource( 4 )
 
-[node name="DropZone3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 16, 304 )
+[node name="RedPot" parent="." instance=ExtResource( 2 )]
+position = Vector2( 24, 96 )
 
-[node name="DropZone" parent="." instance=ExtResource( 1 )]
-position = Vector2( 24, 128 )
+[node name="RedPot2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 16, 200 )
 
-[node name="DropZone2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 120, 128 )
+[node name="RedPot3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 120, 88 )
+
+[node name="RedPot4" parent="." instance=ExtResource( 2 )]
+
+[node name="RedPot5" parent="." instance=ExtResource( 2 )]
+
+[node name="RedPot6" parent="." instance=ExtResource( 2 )]
 
 [node name="DropDrink" parent="." instance=ExtResource( 3 )]
 position = Vector2( 320, 256 )
 
+[node name="DropZone3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 34.5961, 193 )
+
+[node name="DropZone" parent="." instance=ExtResource( 1 )]
+position = Vector2( 34.5961, 98 )
+scale = Vector2( 1.05961, 0.978821 )
+
+[node name="DropZone5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 106.596, 98 )
+
+[node name="DropZone2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 194.596, 98 )
+
 [node name="DropZone4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 120, 280 )
+position = Vector2( 106.596, 192 )
 
-[node name="RedPot" parent="." instance=ExtResource( 2 )]
-position = Vector2( 72, 48 )
+[node name="DropZone6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 194.596, 193 )
 
-[node name="RedPot2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 368, 48 )
+[node name="DropZone7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 194.596, 273 )
+
+[node name="DropZone8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 106.596, 273 )
+
+[node name="DropZone9" parent="." instance=ExtResource( 1 )]
+position = Vector2( 34.5961, 273 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -47,6 +72,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 autoplay = true
@@ -54,3 +80,8 @@ autoplay = true
 [connection signal="serveDrink" from="DropDrink" to="." method="_on_DropDrink_serveDrink"]
 [connection signal="addDrink" from="RedPot" to="." method="_on_RedPot_addDrink"]
 [connection signal="addDrink" from="RedPot2" to="." method="_on_RedPot2_addDrink"]
+[connection signal="addDrink" from="RedPot3" to="." method="_on_RedPot3_addDrink"]
+[connection signal="addDrink" from="RedPot4" to="." method="_on_RedPot4_addDrink"]
+[connection signal="addDrink" from="RedPot5" to="." method="_on_RedPot5_addDrink"]
+[connection signal="addDrink" from="RedPot6" to="." method="_on_RedPot6_addDrink"]
+[connection signal="serveDrink" from="DropDrink" to="." method="_on_DropDrink_serveDrink"]

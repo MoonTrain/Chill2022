@@ -19,6 +19,12 @@ const SLIDE_SOUNDS = [
 	preload("res://audio/slide.wav")
 ]
 
+const PICKUP_SOUNDS = [
+	preload("res://audio/pickup1.wav"),
+	preload("res://audio/pickup2.wav"),
+	preload("res://audio/pickup3.wav")
+]
+
 func play_sound(list):
 	$AudioStreamPlayer.stream = list[randi() % list.size()]
 	$AudioStreamPlayer.play()
@@ -63,6 +69,7 @@ func _physics_process(delta):
 func _on_Area2D_input_event(viewport, event, shape_idx):
 	if(Input.is_action_just_pressed("click")):
 		selected = true
+		play_sound(PICKUP_SOUNDS)
 
 
 

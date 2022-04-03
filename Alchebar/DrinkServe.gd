@@ -20,9 +20,8 @@ const SLIDE_SOUNDS = [
 ]
 
 func play_sound(list):
-	if $AudioStreamPlayer2D.playing == false:
-		$AudioStreamPlayer2D.stream = list[randi() % list.size()]
-		$AudioStreamPlayer2D.play()
+	$AudioStreamPlayer.stream = list[randi() % list.size()]
+	$AudioStreamPlayer.play()
 
 func _ready():
 	restPoint = global_position

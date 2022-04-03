@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://art/player character.png" type="Texture" id=1]
+[ext_resource path="res://art/floor.png" type="Texture" id=2]
+[ext_resource path="res://art/wall.png" type="Texture" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 14.127
+height = 30.4521
+
+[sub_resource type="PhysicsMaterial" id=2]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 207.011, 20.6766 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 36.2989, 132.45 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.41418
+margin_top = -11.3137
+margin_right = 1.41418
+margin_bottom = -11.3137
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="player" type="KinematicBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+position = Vector2( 167.566, 10.4868 )
+shape = SubResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+
+[node name="Sprite" type="Sprite" parent="player"]
+position = Vector2( 166.678, 3.57484 )
+texture = ExtResource( 1 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+physics_material_override = SubResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 204.564, 64.0723 )
+shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D"]
+position = Vector2( 203.096, 63.2302 )
+scale = Vector2( 6.43909, 1.12568 )
+texture = ExtResource( 2 )
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
+position = Vector2( 363.742, -92.0525 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D2"]
+position = Vector2( 365.752, -86.02 )
+scale = Vector2( 2.35453, 3.96741 )
+texture = ExtResource( 3 )
+
+[node name="RigidBody2D3" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D3"]
+position = Vector2( 363.742, -92.0525 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D3"]
+position = Vector2( 38.6531, -84.6794 )
+scale = Vector2( 2.35453, 3.96741 )
+texture = ExtResource( 3 )

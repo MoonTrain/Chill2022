@@ -14,6 +14,8 @@ var curNode
 var properties = []
 var color
 
+const POUR_SOUNDS = [preload("res://audio/pour1.wav")]
+
 onready var bottleSprite = get_node("Full-Red")
 
 func _ready():
@@ -65,13 +67,20 @@ func _input(event):
 					shortest_dist = distance
 					curNode = tmp
 					tmp+=1
+					
+					# Play put back sound
 			for child in glassNode:
 				var distance = global_position.distance_to(child.global_position)
+					
 				if distance < shortest_dist && curVar<2:
 					child.select()
 					curVar+=1
 					switchTexture()
 					emit_signal("addDrink")
+					
+					if $AudioStreamPlayer2D.playing == false:
+						$AudioStreamPlayer2D.stream = POUR_SOUNDS[0]
+						$AudioStreamPlayer2D.play()
 
 func getProperties():
 	return properties

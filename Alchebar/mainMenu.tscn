@@ -1,8 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://mainMenu.gd" type="Script" id=1]
 [ext_resource path="res://audio/menu accept.wav" type="AudioStream" id=2]
 [ext_resource path="res://audio/menu mouseover.wav" type="AudioStream" id=3]
+[ext_resource path="res://audio/chill theme.wav" type="AudioStream" id=4]
+[ext_resource path="res://art/titleScreen.png" type="Texture" id=5]
+
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="Theme" id=2]
+
+[sub_resource type="Theme" id=3]
 
 [node name="mainMenu" type="Control"]
 anchor_right = 1.0
@@ -24,18 +32,21 @@ margin_bottom = 100.0
 [node name="startButton" type="Button" parent="menu"]
 margin_right = 840.0
 margin_bottom = 20.0
+theme = SubResource( 1 )
 text = "Start"
 
 [node name="optionsButton" type="Button" parent="menu"]
 margin_top = 24.0
 margin_right = 840.0
 margin_bottom = 44.0
+theme = SubResource( 2 )
 text = "Options"
 
 [node name="quitButton" type="Button" parent="menu"]
 margin_top = 48.0
 margin_right = 840.0
 margin_bottom = 68.0
+theme = SubResource( 3 )
 text = "Quit"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -48,6 +59,17 @@ pitch_scale = 1.74
 
 [node name="ClickAudio" type="AudioStreamPlayer" parent="menu"]
 stream = ExtResource( 2 )
+
+[node name="TitleScreen" type="Sprite" parent="menu"]
+position = Vector2( 421.294, 289.6 )
+scale = Vector2( 1.41806, 1.38928 )
+z_index = -2
+texture = ExtResource( 5 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = 5.0
+autoplay = true
 
 [connection signal="mouse_entered" from="menu/startButton" to="." method="_on_startButton_mouse_entered"]
 [connection signal="pressed" from="menu/startButton" to="." method="_on_startButton_pressed"]

@@ -5,7 +5,7 @@
 [ext_resource path="res://DropDrink.tscn" type="PackedScene" id=3]
 [ext_resource path="res://BarScene.gd" type="Script" id=4]
 [ext_resource path="res://art/Alchemy_Bar_v2.png" type="Texture" id=5]
-[ext_resource path="res://audio/jazz.mp3" type="AudioStream" id=6]
+[ext_resource path="res://audio/jazz.wav" type="AudioStream" id=6]
 
 [node name="BarScene" type="Node"]
 script = ExtResource( 4 )
@@ -14,34 +14,34 @@ script = ExtResource( 4 )
 position = Vector2( 24, 96 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RedPot"]
-volume_db = 3.0
+volume_db = 8.0
 
 [node name="RedPot2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 16, 200 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RedPot2"]
-volume_db = 3.0
+volume_db = 8.0
 
 [node name="RedPot3" parent="." instance=ExtResource( 2 )]
 position = Vector2( 120, 88 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RedPot3"]
-volume_db = 3.0
+volume_db = 8.0
 
 [node name="RedPot4" parent="." instance=ExtResource( 2 )]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RedPot4"]
-volume_db = 3.0
+volume_db = 8.0
 
 [node name="RedPot5" parent="." instance=ExtResource( 2 )]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RedPot5"]
-volume_db = 3.0
+volume_db = 8.0
 
 [node name="RedPot6" parent="." instance=ExtResource( 2 )]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RedPot6"]
-volume_db = 3.0
+volume_db = 8.0
 
 [node name="DropDrink" parent="." instance=ExtResource( 3 )]
 position = Vector2( 320, 256 )
@@ -92,6 +92,7 @@ __meta__ = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
+volume_db = 5.0
 autoplay = true
 
 [connection signal="addDrink" from="RedPot" to="." method="_on_RedPot_addDrink"]

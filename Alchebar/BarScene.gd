@@ -58,15 +58,15 @@ func _ready():
 			child.init(attrib, waterFull, waterHalf, waterEmpty)
 		iterCt+=1
 
-func makeRequest():
-	request = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-	for i in range(0, 4):
-		request[int(rand_range(0, 9))]+=1
+#func makeRequest():
+#	request = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+#	for i in range(0, 4):
+#		request[int(rand_range(0, 9))]+=1
 
 func submitMix():
 	var income = 0
 	for i in range(0, 9):
-		income+=request[i]*curMix[i]
+		income += $Customer.order_mix[i] * curMix[i]
 	money+=income
 	print("Earned ", str(income))
 
@@ -90,7 +90,7 @@ func _on_RedPot2_addDrink():
 
 func _on_DropDrink_serveDrink():
 	submitMix()
-	makeRequest()
+#	makeRequest()
 	for i in request:
 		print(i)
 

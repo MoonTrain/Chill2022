@@ -17,14 +17,27 @@ func _ready():
 
 
 func _on_startButton_pressed():
+	if $menu/ClickAudio.playing == false:	$menu/ClickAudio.play()
+	OS.delay_msec(500)
 	get_tree().change_scene("res://Node.tscn")
 
+func _on_startButton_mouse_entered():
+	if $menu/MouseOverAudio.playing == false:	$menu/MouseOverAudio.play()
 
 func _on_optionsButton_pressed():
-	pass # Replace with function body.
-	
-	
+	if $menu/ClickAudio.playing == false:	$menu/ClickAudio.play()
 
 
 func _on_quitButton_pressed():
+	if $menu/ClickAudio.playing == false:	$menu/ClickAudio.play()
 	get_tree().quit()
+
+
+func _on_startButton_focus_entered():
+	$menu/MouseOverAudio.play()
+
+func _on_optionsButton_mouse_entered():
+	$menu/MouseOverAudio.play()
+
+func _on_quitButton_mouse_entered():
+	$menu/MouseOverAudio.play()

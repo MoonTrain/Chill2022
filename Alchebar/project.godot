@@ -11,6 +11,7 @@ config_version=4
 [application]
 
 config/name="Alchebar"
+run/main_scene="res://mainMenu.tscn"
 config/icon="res://icon.png"
 
 [display]

@@ -11,6 +11,18 @@ onready var bottleSprite = get_node("Bottle")
 var restPoint
 var served = false
 
+const TRASH_SOUNDS = [
+	preload("res://audio/trash.wav")
+]
+
+const SLIDE_SOUNDS = [
+	preload("res://audio/slide.wav")
+]
+
+func play_sound(list):
+	$AudioStreamPlayer.stream = list[randi() % list.size()]
+	$AudioStreamPlayer.play()
+
 func _ready():
 	restPoint = global_position
 	targetNode = get_tree().get_nodes_in_group("slideTarget")
@@ -59,6 +71,7 @@ func _on_SlideLocation_mouseEntered():
 		selected = false
 		served = true
 		curVar = 0
+		play_sound(SLIDE_SOUNDS)
 		emit_signal("serveDrink")
 		switchTexture()
 
@@ -66,6 +79,7 @@ func _on_SlideLocation_mouseEntered():
 func _on_TrashLocation_mouseEntered():
 	if selected:
 		selected = false
+		play_sound(TRASH_SOUNDS)
 		emit_signal("emptyDrink")
 		curVar = 0
 		global_position[0]=-100

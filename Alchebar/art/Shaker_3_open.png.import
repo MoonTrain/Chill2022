@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ingredientWater.png-03d787cd70ed5381b64e4ff2da547c5f.stex"
+path="res://.import/Shaker_3_open.png-e14d95b712b0c5fd1b77a5f3570383b9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/ingredientWater.png"
-dest_files=[ "res://.import/ingredientWater.png-03d787cd70ed5381b64e4ff2da547c5f.stex" ]
+source_file="res://art/Shaker_3_open.png"
+dest_files=[ "res://.import/Shaker_3_open.png-e14d95b712b0c5fd1b77a5f3570383b9.stex" ]
 
 [params]
 

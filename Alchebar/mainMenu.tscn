@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://mainMenu.gd" type="Script" id=1]
+[ext_resource path="res://audio/menu accept.wav" type="AudioStream" id=2]
+[ext_resource path="res://audio/menu mouseover.wav" type="AudioStream" id=3]
 
 [node name="mainMenu" type="Control"]
 anchor_right = 1.0
@@ -8,9 +10,6 @@ anchor_bottom = 1.0
 margin_left = -0.793701
 margin_right = -0.793701
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="menu" type="VBoxContainer" parent="."]
 anchor_left = 0.5
@@ -21,9 +20,6 @@ margin_left = -420.0
 margin_top = -90.0
 margin_right = 420.0
 margin_bottom = 100.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="startButton" type="Button" parent="menu"]
 margin_right = 840.0
@@ -45,6 +41,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="MouseOverAudio" type="AudioStreamPlayer" parent="menu"]
+stream = ExtResource( 3 )
+volume_db = -3.496
+pitch_scale = 1.74
+
+[node name="ClickAudio" type="AudioStreamPlayer" parent="menu"]
+stream = ExtResource( 2 )
+
+[connection signal="mouse_entered" from="menu/startButton" to="." method="_on_startButton_mouse_entered"]
 [connection signal="pressed" from="menu/startButton" to="." method="_on_startButton_pressed"]
+[connection signal="mouse_entered" from="menu/optionsButton" to="." method="_on_optionsButton_mouse_entered"]
 [connection signal="pressed" from="menu/optionsButton" to="." method="_on_optionsButton_pressed"]
+[connection signal="mouse_entered" from="menu/quitButton" to="." method="_on_quitButton_mouse_entered"]
 [connection signal="pressed" from="menu/quitButton" to="." method="_on_quitButton_pressed"]

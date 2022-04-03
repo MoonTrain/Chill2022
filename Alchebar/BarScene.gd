@@ -36,10 +36,10 @@ func _ready():
 	var iterCt = 0
 	for child in potList:
 		var attrib = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-		var flav1 = int(rand_range(0, 9))
-		var flav2 = int(rand_range(0, 9))
-		var flav3 = int(rand_range(0, 9))
-		var flav4 = int(rand_range(0, 9))
+		var flav1 = 2
+		var flav2 = 2
+		var flav3 = 2
+		var flav4 = 3
 		attrib[flav1]+=1
 		attrib[flav2]+=1
 		attrib[flav3]+=1
@@ -129,3 +129,4 @@ func _on_RedPot6_addDrink():
 	for i in toAdd:
 		curMix[pos]+=i
 		pos+=1
+

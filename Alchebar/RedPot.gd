@@ -102,6 +102,9 @@ func _input(event):
 					emit_signal("addDrink")
 					
 					play_sound(POUR_SOUNDS)
+					
+			if global_position.x > 558 and global_position.y > 374:
+				refill()
 
 func getProperties():
 	return properties
@@ -114,3 +117,6 @@ func switchTexture():
 	elif(curVar==2):
 		bottleSprite.set_texture(emptyTex)
  
+func refill():
+	curVar = 0
+	switchTexture()

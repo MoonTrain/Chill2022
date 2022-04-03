@@ -3,7 +3,7 @@ extends Node2D
 const customer_skins = [preload("res://art/Guy-Business_Suit_1.png"), preload("res://art/Guy-Business_Suit_1_Alt.png"),
 						preload("res://art/Guy-Business_Suit_2.png"), preload("res://art/Guy-Business_Suit_2_Alt.png")]
 var order_type = ["Drink", "Alchemy"]
-var order_mix = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+var order_mix = [0, 0, 0, 0, 0, 0 ]
 						
 # Declare member variables here. Examples:
 # var a = 2
@@ -37,4 +37,8 @@ func _ready():
 func _on_Area2D_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT:
 		print("Click")
+		
+
+func order_up():
+	if $BarScene.SubmitMix == true:
 		generate()

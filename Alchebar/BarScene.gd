@@ -69,6 +69,7 @@ func submitMix():
 		income += $Customer.order_mix[i] * curMix[i]
 	money+=income
 	print("Earned ", str(income))
+	return true
 
 
 func _on_RedPot_addDrink():

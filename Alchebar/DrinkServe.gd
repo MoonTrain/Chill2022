@@ -4,6 +4,7 @@ var halfTex = preload("res://art/Half-Orange.png")
 var emptyTex = preload("res://art/glass2Empty.png")
 var curVar = 0
 signal serveDrink
+signal emptyDrink
 var selected = false
 var targetNode
 onready var bottleSprite = get_node("Bottle")
@@ -37,6 +38,7 @@ func _physics_process(delta):
 		global_position = lerp(global_position, Vector2(1500, 272), 5*delta)
 		if(global_position[0] > 1400):
 			served = false
+			global_position[0]=-100
 		
 	else:
 		if selected:
@@ -58,4 +60,13 @@ func _on_SlideLocation_mouseEntered():
 		served = true
 		curVar = 0
 		emit_signal("serveDrink")
+		switchTexture()
+
+
+func _on_TrashLocation_mouseEntered():
+	if selected:
+		selected = false
+		emit_signal("emptyDrink")
+		curVar = 0
+		global_position[0]=-100
 		switchTexture()

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/jazz.mp3-b5eec15417396947ebe96aad19ca8745.mp3str"
+
+[deps]
+
+source_file="res://jazz.mp3"
+dest_files=[ "res://.import/jazz.mp3-b5eec15417396947ebe96aad19ca8745.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

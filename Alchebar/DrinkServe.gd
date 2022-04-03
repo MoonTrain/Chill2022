@@ -1,6 +1,6 @@
 extends Node2D
-var fullTex = preload("res://art/Full-Orange.png")
-var halfTex = preload("res://art/Half-Orange.png")
+var fullTex = preload("res://art/glass2Full.png")
+var halfTex = preload("res://art/glass2Half.png")
 var emptyTex = preload("res://art/glass2Empty.png")
 var curVar = 0
 signal serveDrink
@@ -71,7 +71,8 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 		selected = true
 		play_sound(PICKUP_SOUNDS)
 
-
+func isFilled():
+	return curVar == 2
 
 func _on_SlideLocation_mouseEntered():
 	if selected:

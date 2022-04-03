@@ -95,7 +95,7 @@ func _input(event):
 			for child in glassNode:
 				var distance = global_position.distance_to(child.global_position)
 					
-				if distance < shortest_dist && curVar<2:
+				if distance < shortest_dist && curVar<2 && not child.isFilled():
 					child.select()
 					curVar+=1
 					switchTexture()

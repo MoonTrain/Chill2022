@@ -88,11 +88,7 @@ func _on_RedPot2_addDrink():
 		pos+=1
 
 
-func _on_DropDrink_serveDrink():
-	submitMix()
-	makeRequest()
-	for i in request:
-		print(i)
+
 
 
 func _on_RedPot3_addDrink():
@@ -129,3 +125,10 @@ func _on_RedPot6_addDrink():
 	for i in toAdd:
 		curMix[pos]+=i
 		pos+=1
+
+
+func _on_DrinkServe_serveDrink():
+	submitMix()
+	makeRequest()
+	for i in request:
+		print(i)

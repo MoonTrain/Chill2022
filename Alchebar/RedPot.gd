@@ -14,9 +14,29 @@ var curNode
 var properties = []
 var color
 
-const POUR_SOUNDS = [preload("res://audio/pour1.wav")]
+const POUR_SOUNDS = [
+	preload("res://audio/pour1.wav"),
+	preload("res://audio/fizzy pour 1.wav")
+]
+
+const PICKUP_SOUNDS = [
+	preload("res://audio/pickup1.wav"),
+	preload("res://audio/pickup2.wav"),
+	preload("res://audio/pickup3.wav")
+]
+
+const PUTDOWN_SOUNDS = [
+	preload("res://audio/putdown-01.wav"),
+	preload("res://audio/putdown-02.wav"),
+	preload("res://audio/putdown-03.wav")
+]
 
 onready var bottleSprite = get_node("Full-Red")
+
+func play_sound(list):
+	if $AudioStreamPlayer2D.playing == false:
+		$AudioStreamPlayer2D.stream = list[randi() % list.size()]
+		$AudioStreamPlayer2D.play()
 
 func _ready():
 	rest_nodes = get_tree().get_nodes_in_group("zone")
@@ -43,6 +63,8 @@ func loadTextures():
 func _on_Area2D_input_event(viewport, event, shape_idx):
 	if(Input.is_action_just_pressed("click")):
 		selected = true
+		
+		play_sound(PICKUP_SOUNDS)
 
 func _physics_process(delta):
 	if selected:
@@ -68,7 +90,8 @@ func _input(event):
 					curNode = tmp
 					tmp+=1
 					
-					# Play put back sound
+					play_sound(PUTDOWN_SOUNDS)
+						
 			for child in glassNode:
 				var distance = global_position.distance_to(child.global_position)
 					
@@ -78,9 +101,7 @@ func _input(event):
 					switchTexture()
 					emit_signal("addDrink")
 					
-					if $AudioStreamPlayer2D.playing == false:
-						$AudioStreamPlayer2D.stream = POUR_SOUNDS[0]
-						$AudioStreamPlayer2D.play()
+					play_sound(POUR_SOUNDS)
 
 func getProperties():
 	return properties

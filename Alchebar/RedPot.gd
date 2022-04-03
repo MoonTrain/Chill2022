@@ -71,6 +71,8 @@ func _physics_process(delta):
 		global_position = lerp(global_position, get_global_mouse_position(), 25*delta)
 		look_at(get_global_mouse_position())
 	else:
+		if global_position.distance_to(rest_point) > 1:	play_sound(PUTDOWN_SOUNDS)
+		
 		global_position = lerp(global_position, rest_point, 10*delta)
 		rotation = lerp_angle(rotation, 0, 10*delta)
 
@@ -89,13 +91,11 @@ func _input(event):
 					shortest_dist = distance
 					curNode = tmp
 					tmp+=1
-					
-					play_sound(PUTDOWN_SOUNDS)
 						
 			for child in glassNode:
 				var distance = global_position.distance_to(child.global_position)
 					
-				if distance < shortest_dist && curVar<2:
+				if distance < shortest_dist && curVar<2 && not child.isFilled():
 					child.select()
 					curVar+=1
 					switchTexture()

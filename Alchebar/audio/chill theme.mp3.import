@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/chill theme.mp3-f5f6e13f457b024222c67a7bf449055d.mp3str"
+
+[deps]
+
+source_file="res://audio/chill theme.mp3"
+dest_files=[ "res://.import/chill theme.mp3-f5f6e13f457b024222c67a7bf449055d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://DropZone.tscn" type="PackedScene" id=1]
 [ext_resource path="res://RedPot.tscn" type="PackedScene" id=2]
-[ext_resource path="res://DropDrink.tscn" type="PackedScene" id=3]
+[ext_resource path="res://DrinkServe.tscn" type="PackedScene" id=3]
 [ext_resource path="res://BarScene.gd" type="Script" id=4]
 [ext_resource path="res://art/Alchemy_Bar_v3.png" type="Texture" id=5]
 [ext_resource path="res://audio/jazz.mp3" type="AudioStream" id=6]
@@ -11,10 +11,12 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 154.5, 80 )
+[ext_resource path="res://SlideLocation.tscn" type="PackedScene" id=7]
+[ext_resource path="res://BarHUD.tscn" type="PackedScene" id=8]
+[ext_resource path="res://audio/trash.wav" type="AudioStream" id=9]
 
 [node name="BarScene" type="Node"]
-script = ExtResource( 4 )
-
+script = ExtResource( 4 
 [node name="Bar Background" type="Sprite" parent="."]
 position = Vector2( 512, 300 )
 scale = Vector2( 0.533333, 0.833333 )
@@ -33,42 +35,64 @@ texture = ExtResource( 5 )
 __meta__ = {
 "_edit_lock_": true
 }
+[node name="BarHUD" parent="." instance=ExtResource( 8 )]
+
+[node name="TrashLocation" parent="." instance=ExtResource( 7 )]
+position = Vector2( 332, 488 )
+scale = Vector2( 0.34, 3 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="TrashLocation"]
+stream = ExtResource( 9 )
+volume_db = 8.0
+
+[node name="SlideLocation" parent="." instance=ExtResource( 7 )]
+position = Vector2( 744, 280 )
+scale = Vector2( 1, 1.5 )
+
+[node name="RefilLocation" parent="." instance=ExtResource( 7 )]
+position = Vector2( 472, 448 )
+scale = Vector2( 0.35, 2.2 )
+
+[node name="DrinkServe" parent="." instance=ExtResource( 3 )]
+position = Vector2( 344, 272 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DrinkServe"]
+volume_db = 8.0
 
 [node name="RedPot" parent="." instance=ExtResource( 2 )]
-position = Vector2( 24, 96 )
+position = Vector2( 192, 112 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RedPot"]
-volume_db = 3.0
+volume_db = 8.0
 
 [node name="RedPot2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 16, 200 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RedPot2"]
-volume_db = 3.0
+volume_db = 8.0
 
 [node name="RedPot3" parent="." instance=ExtResource( 2 )]
 position = Vector2( 120, 88 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RedPot3"]
-volume_db = 3.0
+volume_db = 8.0
 
 [node name="RedPot4" parent="." instance=ExtResource( 2 )]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RedPot4"]
-volume_db = 3.0
+volume_db = 8.0
 
 [node name="RedPot5" parent="." instance=ExtResource( 2 )]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RedPot5"]
-volume_db = 3.0
+volume_db = 8.0
 
 [node name="RedPot6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 168, 200 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RedPot6"]
-volume_db = 3.0
 
-[node name="DropDrink" parent="." instance=ExtResource( 3 )]
-position = Vector2( 320, 256 )
+volume_db = 8.0
 
 [node name="DropZone3" parent="." instance=ExtResource( 1 )]
 position = Vector2( 34.5961, 193 )
@@ -100,6 +124,7 @@ position = Vector2( 34.5961, 273 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
+volume_db = 8.0
 autoplay = true
 
 [node name="Refill_Area" type="Sprite" parent="."]
@@ -110,10 +135,13 @@ autoplay = true
 position = Vector2( 711.5, 454 )
 shape = SubResource( 1 )
 
+[connection signal="mouseEntered" from="TrashLocation" to="DrinkServe" method="_on_TrashLocation_mouseEntered"]
+[connection signal="mouseEntered" from="SlideLocation" to="DrinkServe" method="_on_SlideLocation_mouseEntered"]
+[connection signal="emptyDrink" from="DrinkServe" to="." method="_on_DrinkServe_emptyDrink"]
+[connection signal="serveDrink" from="DrinkServe" to="." method="_on_DrinkServe_serveDrink"]
 [connection signal="addDrink" from="RedPot" to="." method="_on_RedPot_addDrink"]
 [connection signal="addDrink" from="RedPot2" to="." method="_on_RedPot2_addDrink"]
 [connection signal="addDrink" from="RedPot3" to="." method="_on_RedPot3_addDrink"]
 [connection signal="addDrink" from="RedPot4" to="." method="_on_RedPot4_addDrink"]
 [connection signal="addDrink" from="RedPot5" to="." method="_on_RedPot5_addDrink"]
 [connection signal="addDrink" from="RedPot6" to="." method="_on_RedPot6_addDrink"]
-[connection signal="serveDrink" from="DropDrink" to="." method="_on_DropDrink_serveDrink"]

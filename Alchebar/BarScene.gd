@@ -56,7 +56,6 @@ func _ready():
 		else:
 			child.init(attrib, waterFull, waterHalf, waterEmpty)
 		iterCt+=1
-
 func makeRequest():
 	request = [0, 0, 0, 0, 0, 0]
 	for i in range(0, 3):
@@ -86,7 +85,11 @@ func _on_RedPot2_addDrink():
 	for i in toAdd:
 		curMix[pos]+=i
 		pos+=1
-
+func _on_DropDrink_serveDrink():
+	submitMix()
+#	makeRequest()
+	for i in request:
+		print(i)
 func _on_RedPot3_addDrink():
 	print("Adding Mix")
 	var toAdd = $RedPot3.getProperties()
